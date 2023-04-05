@@ -42,7 +42,7 @@ const Parent = ({ posts, amenities }: Props) => {
   console.log("string", posts[0].id);
   return (
     <>
-      <Layout title={posts[postId].name} description={posts[postId].name}>
+      <Layout title={posts[0].name} description={posts[0].name}>
         <ul>
           {amenities
             .filter((amenity) => amenity.property_category === postId)

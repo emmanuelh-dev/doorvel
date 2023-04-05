@@ -14,6 +14,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+
 interface NavigationItem {
   name: string;
   href: string;
@@ -44,12 +45,19 @@ export const Header: FC = () => {
 
   return (
     <>
-      <AppBar position="fixed" className="bg-white dark:bg-black" elevation={0}>
+      <AppBar position="fixed" color="default" elevation={0}>
         <Container maxWidth="xl">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <Link href="/">
-                <span className="dark:text-white text-black font-bold text-lg">
+                <span
+                  style={{
+                    cursor: "pointer",
+                    color: "#000",
+                    fontWeight: "bold",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   Inicio
                 </span>
               </Link>
@@ -60,7 +68,7 @@ export const Header: FC = () => {
               aria-label="menu"
               sx={{ display: { md: "none" } }}
               onClick={toggleDrawer(true)}
-              className="dark:text-white text-black"
+              style={{ color: "#000" }}
             >
               <MenuIcon />
             </IconButton>
@@ -69,15 +77,15 @@ export const Header: FC = () => {
                 role="presentation"
                 onClick={toggleDrawer(false)}
                 onKeyDown={toggleDrawer(false)}
-                className="bg-white dark:bg-black h-screen"
+                style={{ backgroundColor: "#000", height: "100vh" }}
               >
                 <List>
                   {navigation.map((item: { name: string; href: string }) => (
                     <Link href={item.href} key={item.name}>
-                      <ListItem>
+                      <ListItem button>
                         <ListItemText
                           primary={item.name}
-                          className="text-black dark:text-white"
+                          style={{ color: "#fff" }}
                         />
                       </ListItem>
                     </Link>
@@ -85,11 +93,18 @@ export const Header: FC = () => {
                 </List>
               </div>
             </Drawer>
-            <div className="hidden lg:block bg-white dark:bg-black">
+            <div className="hidden lg:block">
               <div className="flex items-baseline space-x-4">
                 {navigation.map((item: { name: string; href: string }) => (
                   <Link href={item.href} key={item.name}>
-                    <span className="text-neutral-400 hover:text-black dark:hover:text-white px-3 py-2  text-sm font-medium">
+                    <span
+                      style={{
+                        cursor: "pointer",
+                        color: "#666",
+                        fontWeight: "medium",
+                        fontSize: "1rem",
+                      }}
+                    >
                       {item.name}
                     </span>
                   </Link>

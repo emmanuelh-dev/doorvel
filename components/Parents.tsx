@@ -14,11 +14,11 @@ interface Props {
 }
 export const PostPreview = ({ name, updated_at, created_by }: Props) => {
   return (
-    <Card sx={{ mb: 4 }} className="bg-white dark:bg-black dark:text-white p-4 rounded-xl">
-      <Typography variant="h5" component="h2">
+    <Card sx={{ mb: 4, bgcolor: "background.paper" }} variant="outlined">
+      <Typography variant="h5" component="h2" sx={{ p: 2 }}>
         {name}
       </Typography>
-      <Typography variant="body2" className="dark:text-neutral-400 text-neutral-900" gutterBottom>
+      <Typography variant="body2" color="text.secondary" sx={{ px: 2, pb: 2 }}>
         {formatearFecha(updated_at)} - By {created_by}
       </Typography>
     </Card>
